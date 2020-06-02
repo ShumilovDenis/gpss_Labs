@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{head}"></head>
+<head>
+    <script type="text/javascript" src="/js/contacts.js"></script>
+</head>
+<body>
+<div>
+    <div style="text-align: center;"></br>
+        <h1>Контакты </br>
+            <a class="href-a" href="#">Добавить новый контакт</a></h1></br>
+    </div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th></th>
+            <th>id</th>
+            <th>mail</th>
+            <th>Телефонный номер</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contacts : ${data}">
+            <td>
+                <button id="edit" type="button" class="btn btn-primary">Изменить</button>
+            </td>
+            <td class="id" th:text="${contacts.idContacts}"></td>
+            <td th:text="${contacts.email}"></td>
+            <td th:text="${contacts.phoneNumber}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+</html>

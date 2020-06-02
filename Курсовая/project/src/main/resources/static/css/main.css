@@ -1,0 +1,6 @@
+body{
+    background-color: #454d55 !important;
+}
+h1, a#main, a#product, a#workshop, a#contacts, a#post, a#sellers, a#order {
+    color: white !important;
+}

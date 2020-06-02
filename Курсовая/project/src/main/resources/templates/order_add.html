@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<form class = "form" th:action="@{/order}"
+      th:object="${order}" method="POST">
+    <input type="hidden" th:field="*{idOrd}"/>
+    <input type="hidden" th:field="*{active}"/>
+    <div class="form-group">
+        <div class="form-group">
+            <label>Товар: </label>
+            <select class="form-control" th:field="*{product}">
+                <option th:each="type : ${product}"
+                        th:value="${type.idProduct}"
+                        th:text="${type}"></option>
+            </select>
+        </div>
+        <label>Мастерская: </label>
+        <select class="form-control" th:field="*{workshop}">
+            <option th:each="type : ${workshop}"
+                    th:value="${type.idWorkshop}"
+                    th:text="${type}"></option>
+        </select>
+        <label>Продавец: </label>
+        <select class="form-control" th:field="*{sellers}">
+            <option th:each="type : ${sellers}"
+                    th:value="${type.idSellers}"
+                    th:text="${type}"></option>
+        </select>
+        <div class="form-group">
+            <label>Дата: </label>
+            <input type="date" th:field="*{date}" class="form-control">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+    <button id="delete" type="button" class="btn btn-primary">Удалить</button>
+</form>
+</body>
+</html>
